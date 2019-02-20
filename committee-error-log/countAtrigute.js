@@ -3,12 +3,12 @@ function name |countAtributes
 summary       |何回目の登場かを判定
 ******************************************************************/
 function countAtributes() {
-
-var start = new Date();
   //開始位置を指定
   if (COUNT == null) {COUNT = 2};
-  if (COUNT >= 30000) {
+  if (COUNT >= 194794) {
     deleteTrigger();
+    //メールで通知
+    MailApp.sendEmail('s.mizunoya@freee.co.jp', '判定が終わりました', 'Unique化のための判定が終わりました。');
     return;
   };
 
@@ -34,9 +34,6 @@ var start = new Date();
 
   //カウントをプロパティに保存
   PropertiesService.getScriptProperties().setProperty('count',parseInt(begin)+parseInt(once));
-//終了時間
-var end = new Date();
-PropertiesService.getScriptProperties().setProperty('timePast',(end - start) / 1000);
 }
 
 /******************************************************************
